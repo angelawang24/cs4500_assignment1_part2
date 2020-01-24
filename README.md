@@ -1,9 +1,6 @@
-------------------------------------------------------
-|           Object and Array                         |
-|           by Maria Orias & Chase Bishop            |
-------------------------------------------------------
+# Assignment 1 Part 2
 
-### Part2 Overview:
+### Part 2 Overview:
 This directory contains the contents for Assignment 1 Part 2. Included in this directory are `object.h`, `array.h`, and `test-array.cpp`. The Object and Array classes are basic APIs that are to be fully implemented in a later assignment. The test file is a handful of tests that should pass once Object and Array are fully implemented.
 
 ### Object:
