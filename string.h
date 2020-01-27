@@ -10,18 +10,17 @@ public:
   /** VARIABLES */
   
   char* str_; // the string value stored
-  size_t size_; // the length of the string
 
   /** CONSTRUCTORS & DESTRUCTORS **/
 
   /** Creates a String copying str */
-  String(char* str) {}
+  String(char* s) {}
 
   /** Creates a String copying str */
-  String(const char* str) {}
+  String(const char* s) {}
 
   /** Copies a String copying the value from str */
-  String(String* str) {}
+  String(String* s) {}
 
   /** Clears String from memory */
   ~String() {}
@@ -30,23 +29,20 @@ public:
   /** INHERITED METHODS **/
 
   /** Inherited from Object, generates a hash for a String */
-  size_t hash_me_() {}
+  size_t hash() {}
 
   /** Inherited from Object, checks equality between an String and an Object */
   bool equals(Object* obj) {}
-
-  /** Inherited from Object, converts an String to a string */
-  char* to_string() {}
-
-  /** Inhertied from Object, prints a string representation of an String */
-  void print() {}
 
 
   /** STRING METHODS **/
 
   /** Creates a new String by combining two existing Strings */
-  String* concat(String* toAdd) {}
+  String* concat(String* s) {}
 
   /** Returns the current length of the String */
-  size_t length() {}
+  size_t size() {}
+
+  /** compares strings on alphabetical order */
+  int cmp(String* s) {}
 };
