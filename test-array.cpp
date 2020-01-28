@@ -172,6 +172,23 @@ void complex_stringarray_test() {
   OK("7");
 }
 
+/* Tests when index given is greater than or equal to size of array. If the index is too high, the
+index of the last element will be used. */
+void index_out_of_bound_tests() {
+  IntArray * arr = new IntArray(10);
+
+  arr->push(1);
+  arr->push(2);
+  arr->push(3);
+
+  t_true(arr->get(4) == 3, "8a");
+  t_true(arr->remove(4) == 3, "8b");
+  t_true(arr->replace(4, 4) == 2, "8c");
+  t_true(arr->get(1) == 4, "8d");
+
+  OK("8");
+}
+
 int main() {
   basic_object_test();
   basic_string_test();
@@ -182,6 +199,8 @@ int main() {
   basic_stringarray_test();
 
   complex_stringarray_test();
+
+  index_out_of_bound_tests();
 
   exit(0);
 }
