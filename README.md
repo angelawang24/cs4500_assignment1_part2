@@ -25,7 +25,7 @@ Contents:
 ### Array:
 Overview:
 - Subclass of Object
-- An Array class that is meant to handle general Objects as well as Strings
+- 4 different implementations, BoolArray, FloatArray, IntArray, StringArray (see [Piazza](https://piazza.com/class/k51bluky59n2jr?cid=331))
 
 Contents:
 - basic constructors and destructors
