@@ -1,5 +1,6 @@
 #pragma once
 #include "object.h"
+#include "string.h"
 
 /**
  * An Array class to which elements can be added to and removed from.
@@ -52,6 +53,9 @@ public:
 
   /** Removes the last Object of the Array, returns the removed Object */
   String* pop() {}
+
+  /** Gets a String at the given index */
+  String* get(size_t index) {}
 
   /** Adds an Object to the end of the Array, returns the new length */
   size_t push(String* to_add) {}
@@ -244,4 +248,4 @@ class BoolArray : public Object {
 
   /** Replaces an bool at the given index with the given bool, returns the replaced bool */
   bool replace(size_t index, bool new_value) {}
-};
+}

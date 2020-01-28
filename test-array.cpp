@@ -11,7 +11,7 @@ void OK(const char* m) { printf("test %s passed\n", m); }
 void t_true(bool p, const char* m) { if (!p) FAIL(m); }
 void t_false(bool p, const char* m) { if (p) FAIL(m); }
 
-/** Tests Object equality */
+/** Tests string equality */
 void basic_object_test() {
   Object * x = new Object();
   Object * y = new Object();
@@ -28,6 +28,7 @@ void basic_object_test() {
 
   OK("1");
 }
+
 
 /** Tests String equality */
 void basic_string_test() {
@@ -50,10 +51,10 @@ void basic_string_test() {
 
 /** Tests pushing, popping, and length of Arrays */
 void basic_array_test() {
-  Object * x = new Object();
-  Object * y = new Object();
-  Object * z = new Object();
-  Array * arr = new Array(10);
+  String * x = new String("Hello");
+  String * y = new String("World");
+  String * z = new String("!");
+  StringArray * arr = new StringArray(10);
 
   arr->push(x);
   arr->push(y);
@@ -72,16 +73,37 @@ void basic_array_test() {
   OK("3");
 }
 
+/** Tests pushing, popping, and length of Arrays */
+void basic_intarray_test() {
+  IntArray * arr = new IntArray(10);
+
+  arr->push(1);
+  arr->push(2);
+  arr->push(3);
+  t_true(arr->length() == 3, "3a");
+  arr->pop();
+  t_true(arr->length() == 2, "3b");
+  arr->clear();
+  t_true(arr->length() == 0, "3c");
+
+  delete arr;
+  delete z;
+  delete y;
+  delete x;
+
+  OK("3");
+}
+
 /** Tests more complex Array functions */
 void complex_array_test() {
-  Object * a = new Object();
-  Object * b = new Object();
-  Object * c = new Object();
-  Object * x = new Object();
-  Object * y = new Object();
-  Object * z = new Object();
-  Array * arr1 = new Array(10);
-  Array * arr2 = new Array(10);
+  String * a = new String("This");
+  String * b = new String("is going");
+  String * c = new String("in a list");
+  String * x = new String("Hello");
+  String * y = new String("World");
+  String * z = new String("!");
+  StringArray * arr1 = new StringArray(10);
+  StringArray * arr2 = new StringArray(10);
 
   arr1->push(a);
   arr1->push(b);
@@ -89,7 +111,7 @@ void complex_array_test() {
   arr2->push(x);
   arr2->push(y);
   arr2->push(z);
-  Object * copy_of_a = arr1->get(0);
+  String * copy_of_a = arr1->get(0);
   t_true(copy_of_a->equals(a), "4a");
   arr1->concat(arr2);
   t_true(arr1->length() == 6, "4b");
@@ -102,7 +124,7 @@ void complex_array_test() {
   arr2->replace(1, z);
   t_true(arr2->index_of(z) == 1, "4h");
   t_true(arr2->index_of(y) == -1, "4i");
-  Array * copy_of_arr1 = new Array(arr1);
+  StringArray * copy_of_arr1 = new StringArray(arr1);
   t_true(copy_of_arr1->equals(arr1), "4j");
 
   delete arr2;
