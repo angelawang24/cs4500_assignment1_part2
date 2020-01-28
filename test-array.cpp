@@ -50,7 +50,7 @@ void basic_string_test() {
 }
 
 /** Tests pushing, popping, and length of Arrays */
-void basic_array_test() {
+void basic_stringarray_test() {
   String * x = new String("Hello");
   String * y = new String("World");
   String * z = new String("!");
@@ -80,22 +80,55 @@ void basic_intarray_test() {
   arr->push(1);
   arr->push(2);
   arr->push(3);
-  t_true(arr->length() == 3, "3a");
+  t_true(arr->length() == 3, "4a");
   arr->pop();
-  t_true(arr->length() == 2, "3b");
+  t_true(arr->length() == 2, "4b");
   arr->clear();
-  t_true(arr->length() == 0, "3c");
+  t_true(arr->length() == 0, "4c");
 
   delete arr;
-  delete z;
-  delete y;
-  delete x;
+
+  OK("4");
+}
+
+/** Tests pushing, popping, and length of Arrays */
+void basic_floatarray_tests() {
+  FloatArray * arr = new FloatArray(10);
+
+  arr->push(1.5);
+  arr->push(2.7);
+  arr->push(3.9);
+  t_true(arr->length() == 3, "5a");
+  arr->pop();
+  t_true(arr->length() == 2, "5b");
+  arr->clear();
+  t_true(arr->length() == 0, "5c");
+
+  delete arr;
+
+  OK("5");
+}
+
+/** Tests pushing, popping, and length of Arrays */
+void basic_boolarray_tests() {
+  BoolArray * arr = new BoolArray(10);
+
+  arr->push(false);
+  arr->push(true);
+  arr->push(false);
+  t_true(arr->length() == 3, "6a");
+  arr->pop();
+  t_true(arr->length() == 2, "6b");
+  arr->clear();
+  t_true(arr->length() == 0, "6c");
+
+  delete arr;
 
   OK("3");
 }
 
 /** Tests more complex Array functions */
-void complex_array_test() {
+void complex_stringarray_test() {
   String * a = new String("This");
   String * b = new String("is going");
   String * c = new String("in a list");
@@ -112,20 +145,20 @@ void complex_array_test() {
   arr2->push(y);
   arr2->push(z);
   String * copy_of_a = arr1->get(0);
-  t_true(copy_of_a->equals(a), "4a");
+  t_true(copy_of_a->equals(a), "7a");
   arr1->concat(arr2);
-  t_true(arr1->length() == 6, "4b");
-  t_true(arr2->length() == 3, "4c");
-  t_true(arr1->index_of(y) == 4, "4d");
-  t_true(arr2->index_of(y) == 1, "4e");
-  t_true(arr2->index_of(z) == 2, "4f");
+  t_true(arr1->length() == 6, "7b");
+  t_true(arr2->length() == 3, "7c");
+  t_true(arr1->index_of(y) == 4, "7d");
+  t_true(arr2->index_of(y) == 1, "7e");
+  t_true(arr2->index_of(z) == 2, "7f");
   arr2->remove(2);
-  t_true(arr2->index_of(z) == -1, "4g");
+  t_true(arr2->index_of(z) == -1, "7g");
   arr2->replace(1, z);
-  t_true(arr2->index_of(z) == 1, "4h");
-  t_true(arr2->index_of(y) == -1, "4i");
+  t_true(arr2->index_of(z) == 1, "7h");
+  t_true(arr2->index_of(y) == -1, "7i");
   StringArray * copy_of_arr1 = new StringArray(arr1);
-  t_true(copy_of_arr1->equals(arr1), "4j");
+  t_true(copy_of_arr1->equals(arr1), "7j");
 
   delete arr2;
   delete arr1;
@@ -136,13 +169,19 @@ void complex_array_test() {
   delete b;
   delete a;
 
-  OK("4");
+  OK("7");
 }
 
 int main() {
   basic_object_test();
   basic_string_test();
-  basic_array_test();
-  complex_array_test();
+
+  basic_boolarray_tests();
+  basic_floatarray_tests();
+  basic_intarray_test();
+  basic_stringarray_test();
+
+  complex_stringarray_test();
+
   exit(0);
 }
