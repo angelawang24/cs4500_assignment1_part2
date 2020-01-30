@@ -160,6 +160,7 @@ void complex_stringarray_test() {
   StringArray * copy_of_arr1 = new StringArray(arr1);
   t_true(copy_of_arr1->equals(arr1), "7j");
 
+  delete copy_of_arr1;
   delete arr2;
   delete arr1;
   delete z;
@@ -185,6 +186,8 @@ void index_out_of_bound_tests() {
   t_true(arr->remove(4) == 3, "8b");
   t_true(arr->replace(4, 4) == 2, "8c");
   t_true(arr->get(1) == 4, "8d");
+
+  delete arr;
 
   OK("8");
 }
