@@ -161,9 +161,50 @@ public:
 };
 
 /**
+ * An Array class to which Objects can be added to and removed from.
+ * author: chasebish & csstransky */
+class ObjectArray : public Array {
+public:
+  /** CONSTRUCTORS & DESTRUCTORS **/
+
+  /* Creates an Array of desired size */
+  ObjectArray(size_t size);
+
+  /* Copies the contents of an already existing Array */
+  ObjectArray(ObjectArray* const arr);
+
+  /* Clears Array from memory */
+  ~ObjectArray();
+
+
+  /** ARRAY METHODS **/
+
+  /* Adds an ObjectArray to existing contents */
+  virtual void concat(ObjectArray* const arr);
+
+  /* Returns the index of the given Object, -1 if Object is not found */
+  size_t index_of(Object* const to_find);
+
+  /* Removes the last Object of the Array, returns the removed Object */
+  virtual Object* pop();
+
+  /* Gets a Object at the given index */
+  virtual Object* get(size_t index);
+
+  /* Adds a Object to the end of the Array, returns the new length */
+  virtual size_t push(Object* const to_add);
+
+  /* Removes a Object at the given index, returns removed Object */
+  virtual Object* remove(size_t index);
+
+  /* Replaces a Object at the given index with the given Object, returns the replaced Object */
+  virtual Object* replace(size_t index, Object* const to_add);
+};
+
+/**
  * An Array class to which Strings can be added to and removed from.
  * author: chasebish */
-class StringArray : public Array {
+class StringArray : public ObjectArray {
 public:
   /** CONSTRUCTORS & DESTRUCTORS **/
 
@@ -181,9 +222,6 @@ public:
 
   /* Adds an StringArray to existing contents */
   void concat(StringArray* const arr);
-
-  /* Returns the index of the given String, -1 if String is not found */
-  size_t index_of(String* const to_find);
 
   /* Removes the last String of the Array, returns the removed String */
   String* pop();
