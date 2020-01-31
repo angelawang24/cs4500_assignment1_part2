@@ -61,22 +61,25 @@ public:
 
   /**
    * Gets an bool at the given index
-   * Throws an error if not found or out of range */
+   * Throws an error if not found or out of range or no elements in array */
   bool get(size_t index);
 
   /* Returns the index of the given bool, -1 if bool is not found */
   size_t index_of(bool to_find);
 
   /* Removes the last bool of the Array, returns the removed bool */
+  /* Throws an error if not found or out of range or no elements in array*/
   bool pop();
 
   /* Adds an bool to the end of the Array, returns the new length */
   size_t push(bool to_add);
 
   /* Removes an bool at the given index, returns removed bool */
+  /* Throws an error if not found or out of range or no elements in array*/
   bool remove(size_t index);
 
   /* Replaces an bool at the given index with the given bool, returns the replaced bool */
+  /* Throws an error if not found or out of range or no elements in array*/
   bool replace(size_t index, bool to_add);
 };
 
@@ -104,22 +107,25 @@ public:
 
   /**
    * Gets an bool at the given index
-   * Throws an error if not found or out of range */
+   * Throws an error if not found or out of range  or no elements in array*/
   float get(size_t index);
 
   /* Returns the index of the given float, -1 if float is not found */
   size_t index_of(float to_find);
 
   /* Removes the last float of the Array, returns the removed float */
+  /* Throws an error if not found or out of range or no elements in array*/
   float pop();
 
   /* Adds an float to the end of the Array, returns the new length */
   size_t push(float to_add);
 
   /* Removes an float at the given index, returns removed float */
+  /* Throws an error if not found or out of range or no elements in array*/
   float remove(size_t index);
 
   /* Replaces a float at the given index with the given float, returns the replaced float */
+  /* Throws an error if not found or out of range or no elements in array*/
   float replace(size_t index, float to_add);
 };
 
@@ -147,22 +153,25 @@ public:
 
   /**
    * Gets an bool at the given index
-   * Throws an error if not found or out of range */
+   * Throws an error if not found or out of range or no elements in array */
   int get(size_t index);
 
   /* Returns the index of the given int, -1 if int is not found */
   size_t index_of(int to_find);
 
   /* Removes the last int of the Array, returns the removed int */
+  /* Throws an error if not found or out of range or no elements in array*/
   int pop();
 
   /* Adds an int to the end of the Array, returns the new length */
   size_t push(int to_add);
 
   /* Removes an int at the given index, returns removed int */
+  /* Throws an error if not found or out of range or no elements in array*/
   int remove(size_t index);
 
   /* Replaces an int at the given index with the given int, returns the replaced int */
+  /* Throws an error if not found or out of range or no elements in array*/
   int replace(size_t index, int to_add);
 };
 
@@ -192,20 +201,23 @@ public:
   size_t index_of(Object* const to_find);
 
   /* Removes the last Object of the Array, returns the removed Object */
+  /* Throws an error if not found or out of range or no elements in array*/
   virtual Object* pop();
 
   /**
    * Gets an bool at the given index
-   * Throws an error if not found or out of range */
+   * Throws an error if not found or out of range or no elements in array */
   virtual Object* get(size_t index);
 
   /* Adds a Object to the end of the Array, returns the new length */
   virtual size_t push(Object* const to_add);
 
   /* Removes a Object at the given index, returns removed Object */
+  /* Throws an error if not found or out of range or no elements in array*/
   virtual Object* remove(size_t index);
 
   /* Replaces a Object at the given index with the given Object, returns the replaced Object */
+  /* Throws an error if not found or out of range or no elements in array*/
   virtual Object* replace(size_t index, Object* const to_add);
 };
 
@@ -232,17 +244,21 @@ public:
   void concat(StringArray* const arr);
 
   /* Removes the last String of the Array, returns the removed String */
+  /* Throws an error if not found or out of range or no elements in array*/
   String* pop();
 
   /* Gets a String at the given index */
+  /* Throws an error if not found or out of range or no elements in array*/
   String* get(size_t index);
 
   /* Adds a String to the end of the Array, returns the new length */
   size_t push(String* const to_add);
 
   /* Removes a String at the given index, returns removed String */
+  /* Throws an error if not found or out of range or no elements in array*/
   String* remove(size_t index);
 
   /* Replaces a String at the given index with the given String, returns the replaced String */
+  /* Throws an error if not found or out of range or no elements in array*/
   String* replace(size_t index, String* const to_add);
 };
