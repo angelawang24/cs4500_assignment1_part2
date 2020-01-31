@@ -205,7 +205,7 @@ public:
   virtual Object* pop();
 
   /**
-   * Gets an bool at the given index
+   * Gets an Object at the given index
    * Throws an error if not found or out of range or no elements in array */
   virtual Object* get(size_t index);
 
