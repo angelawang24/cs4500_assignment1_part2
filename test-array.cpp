@@ -173,21 +173,35 @@ void complex_stringarray_test() {
   OK("7");
 }
 
-/* Tests when index given is greater than or equal to size of array. If the index is too high, the
-index of the last element will be used. */
-void index_out_of_bound_tests() {
-  IntArray * arr = new IntArray(10);
+/** Tests object array */
+void object_array_test() {
+  Object * a = new Object();
+  Object * b = new Object();
+  Object * c = new Object();
+  ObjectArray * arr1 = new ObjectArray(10);
 
-  arr->push(1);
-  arr->push(2);
-  arr->push(3);
+  arr1->push(a);
+  t_true(arr1->length() == 1, "8a");
+  t_true(arr1->get(0)->equals(a), "8b");
 
-  t_true(arr->get(4) == 3, "8a");
-  t_true(arr->remove(4) == 3, "8b");
-  t_true(arr->replace(4, 4) == 2, "8c");
-  t_true(arr->get(1) == 4, "8d");
+  arr1->push(b);
+  t_true(arr1->length() == 2, "8c");
+  t_true(arr1->get(1)->equals(b), "8d");
 
-  delete arr;
+  Object * d = arr1->replace(0, c);
+  t_true(d->equals(a), "8e");
+  t_true(arr1->get(0)->equals(c), "8f");
+  t_true(arr1->length() == 2, "8g");
+
+  Object * e = arr1->remove(0);
+  t_true(e->equals(c), "8h");
+  t_true(arr1->get(0)->equals(b), "8i");
+  t_true(arr1->length() == 1, "8j");
+
+  delete a;
+  delete b;
+  delete c;
+  delete arr1;
 
   OK("8");
 }
@@ -203,7 +217,7 @@ int main() {
 
   complex_stringarray_test();
 
-  index_out_of_bound_tests();
+  object_array_test();
 
   exit(0);
 }
