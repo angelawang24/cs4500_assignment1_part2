@@ -59,7 +59,9 @@ public:
   /* Adds an Array to existing contents */
   void concat(BoolArray* const arr);
 
-  /* Gets an bool at the given index */
+  /**
+   * Gets an bool at the given index
+   * Throws an error if not found or out of range */
   bool get(size_t index);
 
   /* Returns the index of the given bool, -1 if bool is not found */
@@ -100,7 +102,9 @@ public:
   /* Adds an Array to existing contents */
   void concat(FloatArray* const toAdd);
 
-  /* Gets an float at the given index */
+  /**
+   * Gets an bool at the given index
+   * Throws an error if not found or out of range */
   float get(size_t index);
 
   /* Returns the index of the given float, -1 if float is not found */
@@ -141,7 +145,9 @@ public:
   /* Adds an Array to existing contents */
   void concat(IntArray* arr);
 
-  /* Gets an int at the given index */
+  /**
+   * Gets an bool at the given index
+   * Throws an error if not found or out of range */
   int get(size_t index);
 
   /* Returns the index of the given int, -1 if int is not found */
@@ -188,7 +194,9 @@ public:
   /* Removes the last Object of the Array, returns the removed Object */
   virtual Object* pop();
 
-  /* Gets a Object at the given index */
+  /**
+   * Gets an bool at the given index
+   * Throws an error if not found or out of range */
   virtual Object* get(size_t index);
 
   /* Adds a Object to the end of the Array, returns the new length */
